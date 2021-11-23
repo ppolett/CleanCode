@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sakk
+namespace Chess
 {
     public class Mezo
     {
@@ -22,7 +22,7 @@ namespace Sakk
         {
             if (babu != null)
             {
-                if (babu.Szin == SzinEnum.feher)
+                if (babu.Color == Color.Enum.white)
                 {
                     Console.BackgroundColor = ConsoleColor.White;
                     Console.ForegroundColor = ConsoleColor.Black;

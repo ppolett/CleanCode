@@ -30,3 +30,7 @@ C:\Users\Suli\Desktop\ora\Sakk\Sakk\obj\Debug\Sakk.csproj.AssemblyReference.cach
 C:\Users\Suli\Desktop\ora\Sakk\Sakk\obj\Debug\Sakk.csproj.CoreCompileInputs.cache
 C:\Users\Suli\Desktop\ora\Sakk\Sakk\obj\Debug\Sakk.exe
 C:\Users\Suli\Desktop\ora\Sakk\Sakk\obj\Debug\Sakk.pdb
+D:\Documents and Settings\Dokumentumok\GitHub\CleanCode\Sakk-main\Sakk\obj\Debug\Sakk.csproj.AssemblyReference.cache
+D:\Documents and Settings\Dokumentumok\GitHub\CleanCode\Sakk-main\Sakk\obj\Debug\Sakk.csproj.CoreCompileInputs.cache
+D:\Documents and Settings\Dokumentumok\GitHub\CleanCode\Sakk-main\Sakk\obj\Debug\Sakk.exe
+D:\Documents and Settings\Dokumentumok\GitHub\CleanCode\Sakk-main\Sakk\obj\Debug\Sakk.pdb

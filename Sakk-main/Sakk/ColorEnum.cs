@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sakk
+namespace Chess
 {
-    public enum SzinEnum
+    public enum ColorEnum
     {
-        fekete,
-        feher
+        black,
+        white
     }
 }

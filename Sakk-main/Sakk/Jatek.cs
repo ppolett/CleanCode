@@ -4,52 +4,52 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sakk
+namespace Chess
 {
     public class Jatek
     {
-        public Tabla JatekTabla;
-        public SzinEnum KiLep = SzinEnum.feher;
+        public Tabla ChessBoard;
+        public ColorEnum KiLep = ColorEnum.feher;
         public bool vege = false;
 
         public Jatek()
         {
-            JatekTabla = new Tabla();
+            ChessBoard = new Tabla();
         }
 
         public void Kezd()
         {
             //fehér
-            JatekTabla.BabuAdasaMezohoz(new Babu(SzinEnum.feher, BabuTipusEnum.bastya), 1, 1);
-            JatekTabla.BabuAdasaMezohoz(new Babu(SzinEnum.feher, BabuTipusEnum.lo), 2, 1);
-            JatekTabla.BabuAdasaMezohoz(new Babu(SzinEnum.feher, BabuTipusEnum.futo), 3, 1);
-            JatekTabla.BabuAdasaMezohoz(new Babu(SzinEnum.feher, BabuTipusEnum.vezer), 4, 1);
-            JatekTabla.BabuAdasaMezohoz(new Babu(SzinEnum.feher, BabuTipusEnum.kiralyno), 5, 1);
-            JatekTabla.BabuAdasaMezohoz(new Babu(SzinEnum.feher, BabuTipusEnum.futo), 6, 1); ;
-            JatekTabla.BabuAdasaMezohoz(new Babu(SzinEnum.feher, BabuTipusEnum.lo), 7, 1);
-            JatekTabla.BabuAdasaMezohoz(new Babu(SzinEnum.feher, BabuTipusEnum.bastya), 8, 1);
+            ChessBoard.BabuAdasaMezohoz(new Babu(ColorEnum.white, BabuTipusEnum.bastya), 1, 1);
+            ChessBoard.BabuAdasaMezohoz(new Babu(ColorEnum.white, BabuTipusEnum.lo), 2, 1);
+            ChessBoard.BabuAdasaMezohoz(new Babu(ColorEnum.white, BabuTipusEnum.futo), 3, 1);
+            ChessBoard.BabuAdasaMezohoz(new Babu(ColorEnum.white, BabuTipusEnum.vezer), 4, 1);
+            ChessBoard.BabuAdasaMezohoz(new Babu(ColorEnum.white, BabuTipusEnum.kiralyno), 5, 1);
+            ChessBoard.BabuAdasaMezohoz(new Babu(ColorEnum.white, BabuTipusEnum.futo), 6, 1); ;
+            ChessBoard.BabuAdasaMezohoz(new Babu(ColorEnum.white, BabuTipusEnum.lo), 7, 1);
+            ChessBoard.BabuAdasaMezohoz(new Babu(ColorEnum.white, BabuTipusEnum.bastya), 8, 1);
 
             for (int i = 1; i <= 8; i++)
             {
-                JatekTabla.BabuAdasaMezohoz(new Babu(SzinEnum.feher, BabuTipusEnum.gyalog), i, 2);
+                ChessBoard.BabuAdasaMezohoz(new Babu(ColorEnum.white, BabuTipusEnum.gyalog), i, 2);
             }
 
             //fekete
-            JatekTabla.BabuAdasaMezohoz(new Babu(SzinEnum.fekete, BabuTipusEnum.bastya), 1, 8);
-            JatekTabla.BabuAdasaMezohoz(new Babu(SzinEnum.fekete, BabuTipusEnum.lo), 2, 8);
-            JatekTabla.BabuAdasaMezohoz(new Babu(SzinEnum.fekete, BabuTipusEnum.futo), 3, 8);
-            JatekTabla.BabuAdasaMezohoz(new Babu(SzinEnum.fekete, BabuTipusEnum.kiralyno), 4, 8);
-            JatekTabla.BabuAdasaMezohoz(new Babu(SzinEnum.fekete, BabuTipusEnum.vezer), 5, 8);
-            JatekTabla.BabuAdasaMezohoz(new Babu(SzinEnum.fekete, BabuTipusEnum.futo), 6, 8); ;
-            JatekTabla.BabuAdasaMezohoz(new Babu(SzinEnum.fekete, BabuTipusEnum.lo), 7, 8);
-            JatekTabla.BabuAdasaMezohoz(new Babu(SzinEnum.fekete, BabuTipusEnum.bastya), 8, 8);
+            ChessBoard.BabuAdasaMezohoz(new Babu(ColorEnum.black, BabuTipusEnum.bastya), 1, 8);
+            ChessBoard.BabuAdasaMezohoz(new Babu(ColorEnum.black, BabuTipusEnum.lo), 2, 8);
+            ChessBoard.BabuAdasaMezohoz(new Babu(ColorEnum.black, BabuTipusEnum.futo), 3, 8);
+            ChessBoard.BabuAdasaMezohoz(new Babu(ColorEnum.black, BabuTipusEnum.kiralyno), 4, 8);
+            ChessBoard.BabuAdasaMezohoz(new Babu(ColorEnum.black, BabuTipusEnum.vezer), 5, 8);
+            ChessBoard.BabuAdasaMezohoz(new Babu(ColorEnum.black, BabuTipusEnum.futo), 6, 8); ;
+            ChessBoard.BabuAdasaMezohoz(new Babu(ColorEnum.black, BabuTipusEnum.lo), 7, 8);
+            ChessBoard.BabuAdasaMezohoz(new Babu(ColorEnum.black, BabuTipusEnum.bastya), 8, 8);
 
             for (int i = 1; i <= 8; i++)
             {
-                JatekTabla.BabuAdasaMezohoz(new Babu(SzinEnum.fekete, BabuTipusEnum.gyalog), i, 7);
+                ChessBoard.BabuAdasaMezohoz(new Babu(ColorEnum.black, BabuTipusEnum.gyalog), i, 7);
             }
 
-            JatekTabla.Kirajzol();
+            ChessBoard.Kirajzol();
         }
 
         public void JatekFuttatas() 
@@ -58,7 +58,7 @@ namespace Sakk
 	        {
                 string hibauzenet;
                 Console.WriteLine("");
-                if (KiLep == SzinEnum.feher)
+                if (KiLep == ColorEnum.feher)
 	            {
                     Console.WriteLine("A FEHÉR LÉP");
 	            }
@@ -89,16 +89,16 @@ namespace Sakk
                 
                 if (vegrehajthatoe == true)
 	            {
-                    if (KiLep == SzinEnum.feher)
+                    if (KiLep == ColorEnum.feher)
 	                {
-                        KiLep = SzinEnum.fekete;
+                        KiLep = ColorEnum.fekete;
 	                }
                     else
 	                {
-                        KiLep = SzinEnum.feher;
+                        KiLep = ColorEnum.feher;
 	                }
 	            }
-                JatekTabla.Kirajzol(hibauzenet);
+                ChessBoard.Kirajzol(hibauzenet);
 	        }
         }
 
@@ -119,7 +119,7 @@ namespace Sakk
         }
         public string Lepes(int kezdox, int kezdoy, int vegx, int vegy)
         {
-            Mezo kiindulomezo = JatekTabla.KeresKoordinataAlapjan(kezdox, kezdoy);
+            Mezo kiindulomezo = ChessTable.KeresKoordinataAlapjan(kezdox, kezdoy);
             if (kiindulomezo.babu != null)
             {
                 List<Mezo> idelephet = HovaLephetABabu(kiindulomezo);
@@ -133,10 +133,10 @@ namespace Sakk
                 }
                 if (lephet == true)
                 {
-                    Babu elvettbabu = JatekTabla.BabuElvetelAMezobol(kezdox, kezdoy);
+                    Babu elvettbabu = ChessBoard.BabuElvetelAMezobol(kezdox, kezdoy);
                     if (elvettbabu != null)
                     {
-                        JatekTabla.BabuAdasaMezohoz(elvettbabu, vegx, vegy);
+                        ChessBoard.BabuAdasaMezohoz(elvettbabu, vegx, vegy);
                         return null;
                     }
                     else
@@ -166,14 +166,14 @@ namespace Sakk
                 startY += deltaY;
                 if (startX < 9 && startX > 0 && startY < 9 && startY > 0)
                 {
-                    Mezo adottMezo = JatekTabla.KeresKoordinataAlapjan(startX, startY);
+                    Mezo adottMezo = ChessBoard.KeresKoordinataAlapjan(startX, startY);
                     if(adottMezo.babu == null)
                     {
                         ideLephet.Add(adottMezo);
                     } 
                     else
                     {
-                        if(adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
+                        if(adottMezo.babu.Color != kiinduloMezo.babu.Color)
                         {
                             ideLephet.Add(adottMezo);
                         }
@@ -199,14 +199,14 @@ namespace Sakk
             startY++;
             if (startX < 9 && startY < 9)
             {
-                Mezo adottMezo = JatekTabla.KeresKoordinataAlapjan(startX, startY);
+                Mezo adottMezo = ChessBoard.KeresKoordinataAlapjan(startX, startY);
                 if (adottMezo.babu == null)
                 {
                     ideLephet.Add(adottMezo);
                 }
                 else
                 {
-                    if (adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
+                    if (adottMezo.babu.Color != kiinduloMezo.babu.Color)
                     {
                         ideLephet.Add(adottMezo);
                     }
@@ -223,32 +223,32 @@ namespace Sakk
         
         void Gyalog(Mezo kiindulomezo, int deltaX, int deltaY)
         {
-            if (kiinduloMezo.babu.Szin == SzinEnum.feher)
+            if (kiinduloMezo.babu.Color == ColorEnum.feher)
                         {
                             if (kiinduloMezo.Y == 2)
                             {
-                                ideLephet.Add(JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X, kiinduloMezo.Y + 2));
-                                ideLephet.Add(JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X, kiinduloMezo.Y + 1));
+                                ideLephet.Add(ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X, kiinduloMezo.Y + 2));
+                                ideLephet.Add(ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X, kiinduloMezo.Y + 1));
                             }
                             else
                             {
                                 if (kiinduloMezo.Y < 8)
                                 {
-                                    ideLephet.Add(JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X, kiinduloMezo.Y + 1));
+                                    ideLephet.Add(ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X, kiinduloMezo.Y + 1));
                                 }
                             }
                             if (kiinduloMezo.X > 1 && kiinduloMezo.Y < 8)
                             {
-                                Mezo adottMezo = JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X - 1, kiinduloMezo.Y + 1);
-                                if (adottMezo.babu != null && adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
+                                Mezo adottMezo = ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X - 1, kiinduloMezo.Y + 1);
+                                if (adottMezo.babu != null && adottMezo.babu.Color != kiinduloMezo.babu.Color)
                                 {
                                     ideLephet.Add(adottMezo);
                                 }
                             }
                             if (kiinduloMezo.X < 8 && kiinduloMezo.Y < 8)
                             {
-                                Mezo adottMezo = JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X + 1, kiinduloMezo.Y + 1);
-                                if (adottMezo.babu != null && adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
+                                Mezo adottMezo = ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X + 1, kiinduloMezo.Y + 1);
+                                if (adottMezo.babu != null && adottMezo.babu.Color != kiinduloMezo.babu.Color)
                                 {
                                     ideLephet.Add(adottMezo);
                                 }
@@ -258,28 +258,28 @@ namespace Sakk
                         {
                             if (kiinduloMezo.Y == 7)
                             {
-                                ideLephet.Add(JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X, kiinduloMezo.Y - 2));
-                                ideLephet.Add(JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X, kiinduloMezo.Y - 1));
+                                ideLephet.Add(ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X, kiinduloMezo.Y - 2));
+                                ideLephet.Add(ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X, kiinduloMezo.Y - 1));
                             }
                             else
                             {
                                 if (kiinduloMezo.Y > 1)
                                 {
-                                    ideLephet.Add(JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X, kiinduloMezo.Y - 1));
+                                    ideLephet.Add(ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X, kiinduloMezo.Y - 1));
                                 }
                             }
                             if (kiinduloMezo.X > 1 && kiinduloMezo.Y > 1)
                             {
-                                Mezo adottMezo = JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X - 1, kiinduloMezo.Y - 1);
-                                if (adottMezo.babu != null && adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
+                                Mezo adottMezo = ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X - 1, kiinduloMezo.Y - 1);
+                                if (adottMezo.babu != null && adottMezo.babu.ColorkiinduloMezo.babu.Color)
                                 {
                                     ideLephet.Add(adottMezo);
                                 }
                             }
                             if (kiinduloMezo.X < 8 && kiinduloMezo.Y > 1)
                             {
-                                Mezo adottMezo = JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X + 1, kiinduloMezo.Y - 1);
-                                if (adottMezo.babu != null && adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
+                                Mezo adottMezo = ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X + 1, kiinduloMezo.Y - 1);
+                                if (adottMezo.babu != null && adottMezo.babu.Color != kiinduloMezo.babu.Color)
                                 {
                                     ideLephet.Add(adottMezo);
                                 }
@@ -305,128 +305,7 @@ namespace Sakk
                         Futo(1,0);
                         Futo(-1,0);
                         Futo(0,-1);
-                        Futo(0,1);/*
-                        bool validMezo = true;
-                        int startX = kiinduloMezo.X;
-                        int startY = kiinduloMezo.Y;
-                        while (validMezo)
-                        {
-                            startX++;
-                            startY++;
-                            if (startX < 9 && startY < 9)
-                            {
-                                Mezo adottMezo = JatekTabla.KeresKoordinataAlapjan(startX, startY);
-                                if (adottMezo.babu == null)
-                                {
-                                    ideLephet.Add(adottMezo);
-                                }
-                                else
-                                {
-                                    if (adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
-                                    {
-                                        ideLephet.Add(adottMezo);
-                                    }
-
-                                    validMezo = false;
-                                }
-                            }
-                            else 
-                            {
-                                validMezo = false;
-                            }
-                        }
-
-                        validMezo = true;
-                        startX = kiinduloMezo.X;
-                        startY = kiinduloMezo.Y;
-                        while (validMezo)
-                        {
-                            startX++;
-                            startY--;
-                            if (startX < 9 && startY > 0)
-                            {
-                                Mezo adottMezo = JatekTabla.KeresKoordinataAlapjan(startX, startY);
-                                if (adottMezo.babu == null)
-                                {
-                                    ideLephet.Add(adottMezo);
-                                }
-                                else
-                                {
-                                    if (adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
-                                    {
-                                        ideLephet.Add(adottMezo);
-                                    }
-
-                                    validMezo = false;
-                                }
-                            }
-                            else
-                            {
-                                validMezo = false;
-                            }
-                        }
-
-                        validMezo = true;
-                        startX = kiinduloMezo.X;
-                        startY = kiinduloMezo.Y;
-                        while (validMezo)
-                        {
-                            startX--;
-                            startY++;
-                            if (startX > 0 && startY < 9)
-                            {
-                                Mezo adottMezo = JatekTabla.KeresKoordinataAlapjan(startX, startY);
-                                if (adottMezo.babu == null)
-                                {
-                                    ideLephet.Add(adottMezo);
-                                }
-                                else
-                                {
-                                    if (adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
-                                    {
-                                        ideLephet.Add(adottMezo);
-                                    }
-
-                                    validMezo = false;
-                                }
-                            }
-                            else
-                            {
-                                validMezo = false;
-                            }
-                        }
-
-                        validMezo = true;
-                        startX = kiinduloMezo.X;
-                        startY = kiinduloMezo.Y;
-                        while (validMezo)
-                        {
-                            startX--;
-                            startY--;
-                            if (startX > 0 && startY > 0)
-                            {
-                                Mezo adottMezo = JatekTabla.KeresKoordinataAlapjan(startX, startY);
-                                if (adottMezo.babu == null)
-                                {
-                                    ideLephet.Add(adottMezo);
-                                }
-                                else
-                                {
-                                    if (adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
-                                    {
-                                        ideLephet.Add(adottMezo);
-                                    }
-
-                                    validMezo = false;
-                                }
-                            }
-                            else
-                            {
-                                validMezo = false;
-                            }
-                        }
-
-                        break;*/
+                        Futo(0,1);
                     }
                 case BabuTipusEnum.gyalog:
                     {
@@ -438,12 +317,10 @@ namespace Sakk
                     }
                 case BabuTipusEnum.kiralyno:
                     {
-                        //futo
                         Futo(1,0);
                         Futo(-1,0);
                         Futo(0,-1);
                         Futo(0,1);
-                        //bástya
                         Bastya(1,0);
                         Bastya(-1,0);
                         Bastya(0,-1);
@@ -456,16 +333,16 @@ namespace Sakk
                         {
                             if (kiinduloMezo.Y > 1)
                             {
-                                Mezo adottMezo = JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X + 2, kiinduloMezo.Y - 1);
-                                if (adottMezo.babu == null || adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
+                                Mezo adottMezo = ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X + 2, kiinduloMezo.Y - 1);
+                                if (adottMezo.babu == null || adottMezo.babu.Color != kiinduloMezo.babu.Color)
                                 {
                                     ideLephet.Add(adottMezo);
                                 }
                             }
                             if (kiinduloMezo.Y < 8)
                             {
-                                Mezo adottMezo = JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X + 2, kiinduloMezo.Y + 1);
-                                if (adottMezo.babu == null || adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
+                                Mezo adottMezo = ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X + 2, kiinduloMezo.Y + 1);
+                                if (adottMezo.babu == null || adottMezo.babu.Color != kiinduloMezo.babu.Color)
                                 {
                                     ideLephet.Add(adottMezo);
                                 }
@@ -475,16 +352,16 @@ namespace Sakk
                         {
                             if (kiinduloMezo.Y > 1)
                             {
-                                Mezo adottMezo = JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X - 2, kiinduloMezo.Y - 1);
-                                if (adottMezo.babu == null || adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
+                                Mezo adottMezo = ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X - 2, kiinduloMezo.Y - 1);
+                                if (adottMezo.babu == null || adottMezo.babu.Color != kiinduloMezo.babu.Color)
                                 {
                                     ideLephet.Add(adottMezo);
                                 }
                             }
                             if (kiinduloMezo.Y < 8)
                             {
-                                Mezo adottMezo = JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X - 2, kiinduloMezo.Y + 1);
-                                if (adottMezo.babu == null || adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
+                                Mezo adottMezo = ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X - 2, kiinduloMezo.Y + 1);
+                                if (adottMezo.babu == null || adottMezo.babu.Color != kiinduloMezo.babu.Color)
                                 {
                                     ideLephet.Add(adottMezo);
                                 }
@@ -494,16 +371,16 @@ namespace Sakk
                         {
                             if (kiinduloMezo.X > 1)
                             {
-                                Mezo adottMezo = JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X - 1, kiinduloMezo.Y + 2);
-                                if (adottMezo.babu == null || adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
+                                Mezo adottMezo = ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X - 1, kiinduloMezo.Y + 2);
+                                if (adottMezo.babu == null || adottMezo.babu.Color != kiinduloMezo.babu.Color)
                                 {
                                     ideLephet.Add(adottMezo);
                                 }
                             }
                             if (kiinduloMezo.X < 8)
                             {
-                                Mezo adottMezo = JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X + 1, kiinduloMezo.Y + 2);
-                                if (adottMezo.babu == null || adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
+                                Mezo adottMezo = ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X + 1, kiinduloMezo.Y + 2);
+                                if (adottMezo.babu == null || adottMezo.babu.Color != kiinduloMezo.babu.Color)
                                 {
                                     ideLephet.Add(adottMezo);
                                 }
@@ -513,16 +390,16 @@ namespace Sakk
                         {
                             if (kiinduloMezo.X > 1)
                             {
-                                Mezo adottMezo = JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X - 1, kiinduloMezo.Y - 2);
-                                if (adottMezo.babu == null || adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
+                                Mezo adottMezo = ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X - 1, kiinduloMezo.Y - 2);
+                                if (adottMezo.babu == null || adottMezo.babu.Color != kiinduloMezo.babu.Color)
                                 {
                                     ideLephet.Add(adottMezo);
                                 }
                             }
                             if (kiinduloMezo.X < 8)
                             {
-                                Mezo adottMezo = JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X + 1, kiinduloMezo.Y - 2);
-                                if (adottMezo.babu == null || adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
+                                Mezo adottMezo = ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X + 1, kiinduloMezo.Y - 2);
+                                if (adottMezo.babu == null || adottMezo.babu.Color != kiinduloMezo.babu.Color)
                                 {
                                     ideLephet.Add(adottMezo);
                                 }
@@ -534,23 +411,23 @@ namespace Sakk
                     {
                         if (kiinduloMezo.X > 1)
                         {
-                            Mezo adottMezo = JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X - 1, kiinduloMezo.Y);
-                            if (adottMezo.babu == null || adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
+                            Mezo adottMezo = ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X - 1, kiinduloMezo.Y);
+                            if (adottMezo.babu == null || adottMezo.babu.Color != kiinduloMezo.babu.Color)
                             {
                                 ideLephet.Add(adottMezo);
                             }
                             if (kiinduloMezo.Y > 1)
                             {
-                                adottMezo = JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X - 1, kiinduloMezo.Y -1);
-                                if (adottMezo.babu == null || adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
+                                adottMezo = ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X - 1, kiinduloMezo.Y -1);
+                                if (adottMezo.babu == null || adottMezo.babu.Color != kiinduloMezo.babu.Color)
                                 {
                                     ideLephet.Add(adottMezo);
                                 }
                             }
                             if (kiinduloMezo.Y < 8)
                             {
-                                adottMezo = JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X - 1, kiinduloMezo.Y +1);
-                                if (adottMezo.babu == null || adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
+                                adottMezo = ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X - 1, kiinduloMezo.Y +1);
+                                if (adottMezo.babu == null || adottMezo.babu.Color != kiinduloMezo.babu.Color)
                                 {
                                     ideLephet.Add(adottMezo);
                                 }
@@ -558,39 +435,39 @@ namespace Sakk
                         }
                         if (kiinduloMezo.Y > 1)
                         {
-                            Mezo adottMezo = JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X, kiinduloMezo.Y - 1);
-                            if (adottMezo.babu == null || adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
+                            Mezo adottMezo = ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X, kiinduloMezo.Y - 1);
+                            if (adottMezo.babu == null || adottMezo.babu.Color != kiinduloMezo.babu.Color)
                             {
                                 ideLephet.Add(adottMezo);
                             }
                         }
                         if (kiinduloMezo.Y < 8)
                         {
-                            Mezo adottMezo = JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X, kiinduloMezo.Y + 1);
-                            if (adottMezo.babu == null || adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
+                            Mezo adottMezo = ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X, kiinduloMezo.Y + 1);
+                            if (adottMezo.babu == null || adottMezo.babu.Color != kiinduloMezo.babu.Color)
                             {
                                 ideLephet.Add(adottMezo);
                             }
                         }
                         if (kiinduloMezo.X < 8)
                         {
-                            Mezo adottMezo = JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X + 1, kiinduloMezo.Y);
-                            if (adottMezo.babu == null || adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
+                            Mezo adottMezo = ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X + 1, kiinduloMezo.Y);
+                            if (adottMezo.babu == null || adottMezo.babu.Color != kiinduloMezo.babu.Color)
                             {
                                 ideLephet.Add(adottMezo);
                             }
                             if (kiinduloMezo.Y > 1)
                             {
-                                adottMezo = JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X + 1, kiinduloMezo.Y - 1);
-                                if (adottMezo.babu == null || adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
+                                adottMezo = ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X + 1, kiinduloMezo.Y - 1);
+                                if (adottMezo.babu == null || adottMezo.babu.Color != kiinduloMezo.babu.Color)
                                 {
                                     ideLephet.Add(adottMezo);
                                 }
                             }
                             if (kiinduloMezo.Y < 8)
                             {
-                                adottMezo = JatekTabla.KeresKoordinataAlapjan(kiinduloMezo.X + 1, kiinduloMezo.Y + 1);
-                                if (adottMezo.babu == null || adottMezo.babu.Szin != kiinduloMezo.babu.Szin)
+                                adottMezo = ChessBoard.KeresKoordinataAlapjan(kiinduloMezo.X + 1, kiinduloMezo.Y + 1);
+                                if (adottMezo.babu == null || adottMezo.babu.Color != kiinduloMezo.babu.Color)
                                 {
                                     ideLephet.Add(adottMezo);
                                 }

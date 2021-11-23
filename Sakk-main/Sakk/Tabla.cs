@@ -4,16 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sakk
+namespace Chess
 {
     public class Tabla
     {
         private readonly int xMax = 8;
         private readonly int yMax = 8;
+
         private readonly List<Mezo> mezok = new List<Mezo>();
 
-        private readonly ConsoleColor alapHatterSzin;
-        private readonly ConsoleColor alapSzovegSzin;
+        private readonly ConsoleColor alapHatterColor;
+        private readonly ConsoleColor alapSzovegColor;
+
         public Tabla() 
         {
             for (int x = 1; x <= xMax; x++)
@@ -24,13 +26,14 @@ namespace Sakk
                 }
             }
 
-            alapHatterSzin = Console.BackgroundColor;
-            alapSzovegSzin = Console.ForegroundColor;
+            alapHatterColor = Console.BackgroundColor;
+            alapSzovegColor = Console.ForegroundColor;
         }
 
         public void Kirajzol(string hibauzenet = null)
         {
             Console.Clear();
+
             Console.WriteLine("  X A   B   C   D   E   F   G   H  ");
             Console.WriteLine("Y =================================");
             for (int x = 1; x <= xMax; x++)
@@ -42,8 +45,8 @@ namespace Sakk
 
                     jelenlegiMezo.Kirajzol();
 
-                    Console.BackgroundColor = alapHatterSzin;
-                    Console.ForegroundColor = alapSzovegSzin;
+                    Console.BackgroundColor = alapHatterColor;
+                    Console.ForegroundColor = alapSzovegColor;
 
                     Console.Write("|");
                 }
@@ -57,8 +60,8 @@ namespace Sakk
                 Console.WriteLine("");
                 Console.WriteLine(hibauzenet);
                 Console.WriteLine("");
-                Console.BackgroundColor = alapHatterSzin;
-                Console.ForegroundColor = alapSzovegSzin;
+                Console.BackgroundColor = alapHatterColor;
+                Console.ForegroundColor = alapSzovegColor;
 	        }
         }
 
@@ -71,7 +74,6 @@ namespace Sakk
                     return mezo;
                 }
             }
-
             return null;
         }
 

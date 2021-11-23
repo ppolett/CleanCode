@@ -4,19 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sakk
+namespace Chess
 {
     public class Babu: IBabu
     {
-        public SzinEnum Szin;
+        public ColorEnum Color;
         public BabuTipusEnum BabuTipus;
 
-        public Babu(SzinEnum szin, BabuTipusEnum babuTipus)
+        public Babu(SzinEnum color, BabuTipusEnum babuTipus)
         {
-            Szin = szin;
+            Color = color;
             BabuTipus = babuTipus;
         }
-
-
     }
 }
